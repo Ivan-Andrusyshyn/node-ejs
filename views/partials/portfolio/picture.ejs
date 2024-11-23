@@ -1,0 +1,46 @@
+<li>
+ <div class="portfolio-thumb">
+  <picture>
+   <source
+    media="(min-width: 1200px)"
+    srcset="<%= pct.srcset.desk.webp %> 1x, <%= pct.srcset.desk.webp2x %> 2x"
+    type="image/webp"
+   />
+   <source
+    media="(min-width: 1200px)"
+    srcset="<%= pct.srcset.desk.jpg %> 1x, <%= pct.srcset.desk.jpg2x %> 2x"
+    type="image/jpg"
+   />
+
+   <source
+    media="(min-width: 768px)"
+    srcset="<%= pct.srcset.tab.webp %> 1x, <%= pct.srcset.tab.webp2x %> 2x"
+    type="image/webp"
+   />
+   <source
+    media="(min-width: 768px)"
+    srcset="<%= pct.srcset.tab.jpg %> 1x, <%= pct.srcset.tab.jpg2x %> 2x"
+    type="image/jpg"
+   />
+
+   <source
+    media="(max-width: 767px)"
+    srcset="<%= pct.srcset.mob.webp %> 1x, <%= pct.srcset.mob.webp2x %> 2x"
+    type="image/webp"
+   />
+   <source
+    media="(max-width: 767px)"
+    srcset="<%= pct.srcset.mob.jpg %> 1x, <%= pct.srcset.mob.jpg2x %> 2x"
+    type="image/jpg"
+   />
+
+   <img
+    src="<%= pct.srcset.mob.jpg %>"
+    alt="<%= pct.alt %>"
+    width="<%= pct.width %>"
+    height="<%= pct.height %>"
+    loading="lazy"
+   />
+  </picture>
+ </div>
+</li>

@@ -1,0 +1,20 @@
+<ul class="social-list">
+ <% links.forEach(link => { %>
+ <li>
+  <a
+   class="social-link"
+   href="<%= link.link %>"
+   target="_blank"
+   rel="noreferrer noopener"
+  >
+   <svg
+    class="social-icon"
+    width="20"
+    height="20"
+   >
+    <use href="<%= link.svgPath %>"></use>
+   </svg>
+  </a>
+ </li>
+ <% }); %>
+</ul>

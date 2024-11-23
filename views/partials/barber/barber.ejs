@@ -1,0 +1,48 @@
+<li class="barbers-item">
+ <div class="barbers-thumb">
+  <picture>
+   <source
+    media="(min-width: 1200px)"
+    srcset="<%= barber.picture.desk.webp %> 1x, <%= barber.picture.desk.webp.replace('@1x', '@2x') %> 2x"
+    type="image/webp"
+   />
+   <source
+    media="(min-width: 1200px)"
+    srcset="<%= barber.picture.desk.jpg %> 1x, <%= barber.picture.desk.jpg.replace('@1x', '@2x') %> 2x"
+    type="image/jpg"
+   />
+   <source
+    media="(min-width: 768px)"
+    srcset="<%= barber.picture.tab.webp %> 1x, <%= barber.picture.tab.webp.replace('@1x', '@2x') %> 2x"
+    type="image/webp"
+   />
+   <source
+    media="(min-width: 768px)"
+    srcset="<%= barber.picture.tab.jpg %> 1x, <%= barber.picture.tab.jpg.replace('@1x', '@2x') %> 2x"
+    type="image/jpg"
+   />
+   <source
+    media="(max-width: 767px)"
+    srcset="<%= barber.picture.mob.webp %> 1x, <%= barber.picture.mob.webp.replace('@1x', '@2x') %> 2x"
+    type="image/webp"
+   />
+   <source
+    media="(max-width: 767px)"
+    srcset="<%= barber.picture.mob.jpg %> 1x, <%= barber.picture.mob.jpg.replace('@1x', '@2x') %> 2x"
+    type="image/jpg"
+   />
+   <img
+    src="<%= barber.picture.tab.jpg %>"
+    alt="<%= barber.name %>"
+    width="450"
+    height="346"
+    loading="lazy"
+   />
+  </picture>
+ </div>
+ <h3 class="barbersName"><%= barber.name %></h3>
+ <span class="barbers-subtext"
+  ><%= barber.role %></span
+ >
+ <%- include('./social',{links:barber.links}); %>
+</li>

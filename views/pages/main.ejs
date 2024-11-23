@@ -34,12 +34,17 @@
    href="../css/main.min.css"
   />
   <link rel="stylesheet" href="../css/node.css" />
+  <link
+   rel="stylesheet"
+   href="../css/notification.css"
+  />
  </head>
  <body>
   <%- include('../partials/header'); %>
   <main>
-   <%- include('../partials/hero'); %>
-   <%-include('../partials/about'); %>
+   <%- include('../partials/hero'); %> <%-
+   include('../partials/notification/success-email'
+   ); %> <%-include('../partials/about'); %>
    <%-include('../partials/price'); %>
    <%-include('../partials/benefits');%>
    <%-include('../partials/barbers');%>

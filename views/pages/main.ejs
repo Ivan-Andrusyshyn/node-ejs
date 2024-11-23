@@ -27,7 +27,10 @@
    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
    rel="stylesheet"
   />
-
+  <link
+   rel="stylesheet"
+   href="../css/sign-up.css"
+  />
   <title>Barbershop</title>
   <link
    rel="stylesheet"
@@ -40,24 +43,27 @@
   />
  </head>
  <body>
-  <%- include('../partials/header'); %>
+  <%- include('../partials/auth'); %> <%-
+  include('../partials/header'); %>
   <main>
-   <%- include('../partials/hero'); %> <%-
+   <%- include('../partials/sections/hero'); %>
+   <%-
    include('../partials/notification/success-email'
-   ); %> <%-include('../partials/about'); %>
-   <%-include('../partials/price'); %>
-   <%-include('../partials/benefits');%>
-   <%-include('../partials/barbers');%>
-   <%-include('../partials/portfolio');%>
+   ); %> <%-include('../partials/sections/about');
+   %> <%-include('../partials/sections/price'); %>
+   <%-include('../partials/sections/benefits');%>
+   <%-include('../partials/sections/barbers');%>
+   <%-include('../partials/sections/portfolio');%>
    <div class="general-block">
-    <%- include('../partials/booking');%> <%-
-    include('../partials/contacts');%>
+    <%- include('../partials/sections/booking');%>
+    <%-
+    include('../partials/sections/contacts');%>
    </div>
   </main>
   <%- include('../partials/footer');%> <%-
   include('../partials/mob-menu');%> <%-
-  include('../partials/modal');%>
-
+  include('../partials/modal');%> <%-
+  include('../partials/sign-up'); %>
   <script
    src="/js/menu.js"
    type="module"
@@ -67,7 +73,7 @@
    type="module"
   ></script>
   <script
-   src="/js/form.js"
+   src="/js/sign-up.js"
    type="module"
   ></script>
   <script

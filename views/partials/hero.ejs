@@ -1,0 +1,40 @@
+<section class="section hero">
+ <div class="container hero-container">
+  <div class="hero-block-left">
+   <ul class="hero-media-list">
+    <li>
+     <a
+      class="media-link"
+      href="https://www.instagram.com/"
+      target="_blank"
+      rel="noreferrer noopener"
+      >Instagram</a
+     >
+    </li>
+    <li>
+     <a
+      class="media-link"
+      href="https://www.youtube.com/"
+      target="_blank"
+      rel="noreferrer noopener"
+      >Youtube</a
+     >
+    </li>
+   </ul>
+  </div>
+  <div class="hero-block-right">
+   <div class="text-container">
+    <p class="uppertitle">
+     A hair salon for men in Kyiv
+    </p>
+    <h1 class="hero-title">BarberShop</h1>
+    <p class="subtitle">
+     We are experts in trendy men’s haircuts. We
+     work quickly, carefully and with style.
+    </p>
+    <% if (user) { %> <%-
+    include('./node/notification',user); %> <%}%>
+   </div>
+  </div>
+ </div>
+</section>

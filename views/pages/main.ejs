@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta
+   name="viewport"
+   content="width=device-width, initial-scale=1.0"
+  />
+  <link
+   rel="icon"
+   href="https://i.postimg.cc/k5BFpSYc/favicon-barbershop.png"
+  />
+  <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+   rel="stylesheet"
+  />
+  <link
+   rel="preconnect"
+   href="https://fonts.googleapis.com"
+  />
+  <link
+   rel="preconnect"
+   href="https://fonts.gstatic.com"
+   crossorigin
+  />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
+   rel="stylesheet"
+  />
+
+  <title>Barbershop</title>
+  <link
+   rel="stylesheet"
+   href="../css/main.min.css"
+  />
+  <link rel="stylesheet" href="../css/node.css" />
+ </head>
+ <body>
+  <%- include('../partials/header'); %>
+  <main>
+   <%- include('../partials/hero'); %>
+   <%-include('../partials/about'); %>
+   <%-include('../partials/price'); %>
+   <%-include('../partials/benefits');%>
+   <%-include('../partials/barbers');%>
+   <%-include('../partials/portfolio');%>
+   <div class="general-block">
+    <%- include('../partials/general-block');%>
+    <%- include('../partials/contacts');%>
+   </div>
+  </main>
+  <%- include('../partials/footer');%> <%-
+  include('../partials/mob-menu');%> <%-
+  include('../partials/modal');%>
+
+  <script
+   src="/js/menu.js"
+   type="module"
+  ></script>
+  <script
+   src="/js/modal.js"
+   type="module"
+  ></script>
+  <script
+   src="/js/form.js"
+   type="module"
+  ></script>
+  <script
+   src="/js/slowScrolling.js"
+   type="module"
+  ></script>
+  <script
+   src="/js/scrollToTop.js"
+   type="module"
+  ></script>
+ </body>
+</html>

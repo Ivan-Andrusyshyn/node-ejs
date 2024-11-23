@@ -1,0 +1,53 @@
+<section class="section booking">
+ <div class="container booking-container">
+  <h2 class="title booking-title">
+   Online-booking
+  </h2>
+  <form class="js-form" autocomplete="off">
+   <div class="booking-form-group">
+    <label class="booking-form-field">
+     <input
+      class="booking-form-input"
+      minlength="3"
+      maxlength="16"
+      type="text"
+      name="name"
+      placeholder="Name Surname"
+      required
+     />
+     <span class="booking-form-label">Name*</span>
+    </label>
+    <label class="booking-form-field">
+     <input
+      class="booking-form-input"
+      minlength="12"
+      maxlength="12"
+      pattern="[0-9]*"
+      type="tel"
+      name="phone"
+      placeholder="380 98 111 11 11"
+      required
+     />
+     <span class="booking-form-label"
+      >Phone*</span
+     >
+    </label>
+   </div>
+   <label class="booking-form-field">
+    <textarea
+     class="booking-form-message"
+     maxlength="160"
+     name="message"
+     rows="5"
+     placeholder="Type your messsage..."
+    ></textarea>
+    <span class="booking-form-label"
+     >Message</span
+    >
+   </label>
+   <button class="btn booking-btn" type="submit">
+    Send
+   </button>
+  </form>
+ </div>
+</section>

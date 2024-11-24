@@ -4,6 +4,7 @@ const db = require('../db/db')
 
 const renderPage = (req, res) => {
  const user = db.user
+ console.log(user)
 
  if (db.user) {
   req.flash(

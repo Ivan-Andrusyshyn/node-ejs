@@ -8,7 +8,7 @@ const dotenv = require('dotenv')
 
 const emailRoutes = require('./routes/email')
 const mainPageRoutes = require('./routes/main-page')
-const signUp = require('./routes/sign-up')
+const signUp = require('./routes/auth')
 dotenv.config()
 
 const app = express()
@@ -47,7 +47,7 @@ app.use(
 
 app.get('/', mainPageRoutes)
 app.use('/email', emailRoutes)
-app.use('/sign-up', signUp)
+app.use('/auth', signUp)
 app.listen(3000, () => {
  console.log('Start server on port', 3000)
 })

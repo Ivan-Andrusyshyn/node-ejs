@@ -27,24 +27,19 @@
    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
    rel="stylesheet"
   />
-  <link
-   rel="stylesheet"
-   href="../css/sign-up.css"
-  />
+  <link rel="stylesheet" href="../css/auth.css" />
   <title>Barbershop</title>
   <link
    rel="stylesheet"
    href="../css/main.min.css"
   />
-  <link rel="stylesheet" href="../css/node.css" />
   <link
    rel="stylesheet"
    href="../css/notification.css"
   />
  </head>
  <body>
-  <%- include('../partials/auth'); %> <%-
-  include('../partials/header'); %>
+  <%- include('../partials/header'); %>
   <main>
    <%- include('../partials/sections/hero'); %>
    <%-
@@ -60,6 +55,7 @@
     include('../partials/sections/contacts');%>
    </div>
   </main>
+  <div id="auth"></div>
   <%- include('../partials/footer');%> <%-
   include('../partials/mob-menu');%> <%-
   include('../partials/modal');%> <%-
@@ -73,7 +69,7 @@
    type="module"
   ></script>
   <script
-   src="/js/sign-up.js"
+   src="/js/auth.js"
    type="module"
   ></script>
   <script

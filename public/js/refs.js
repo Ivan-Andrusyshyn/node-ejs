@@ -34,6 +34,9 @@ const menuRefs = {
 const signForm = document.querySelector(
  '.sign-up_form'
 )
+const authContainer =
+ document.getElementById('auth')
+
 const formRefs =
  document.querySelectorAll('.js-form')
 
@@ -57,5 +60,6 @@ export {
  fixBlocks,
  signUpRef,
  anchors,
+ authContainer,
  scrollBtn,
 }

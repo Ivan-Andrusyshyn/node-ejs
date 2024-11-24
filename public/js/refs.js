@@ -37,7 +37,7 @@ const signForm = document.querySelector(
 const authContainer =
  document.getElementById('auth')
 
-const formRefs =
+const pageFormRef =
  document.querySelectorAll('.js-form')
 
 const fixBlocks =
@@ -56,7 +56,7 @@ export {
  signForm,
  modalRefs,
  menuRefs,
- formRefs,
+ pageFormRef,
  fixBlocks,
  signUpRef,
  anchors,

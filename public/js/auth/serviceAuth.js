@@ -1,29 +1,40 @@
 import { signUpRef } from '../refs.js'
-import { createHtmlAuth } from './createHtmlAuth.js'
 import { authContainer } from '../refs.js'
 
-const headerGet = {
- method: 'GET',
-}
-const headerPost = {
- method: 'POST',
- headers: {
-  'Content-Type': 'application/json',
- },
+const access_token = localStorage.getItem(
+ 'access_token'
+)
+
+const buildHeader = (method) => {
+ if (access_token) {
+  return {
+   method,
+   headers: {
+    Authorization: `Bearer ${JSON.parse(
+     access_token
+    )}`,
+    'Content-Type': 'application/json',
+   },
+  }
+ } else {
+  return { method }
+ }
 }
 
 export const authService = async () => {
- let isAuth = false
-
- const signUp = async (formObject) =>
-  await fetch('/auth/sign-up', {
-   ...headerPost,
+ const signUp = async (formObject) => {
+  return await fetch('/auth/sign-up', {
+   method: 'POST',
+   headers: {
+    'Content-Type': 'application/json',
+   },
    body: JSON.stringify(formObject),
   })
+ }
 
  const logout = async () => {
-  await fetch('/auth/logout')
-  localStorage.removeItem('user')
+  await fetch('/auth/logout', buildHeader('GET'))
+  localStorage.removeItem('access_token')
   authContainer.innerHTML = ''
   showModal()
  }
@@ -32,35 +43,26 @@ export const authService = async () => {
   signUpRef.backdrop.classList.remove(
    'signup_hide'
   )
-  await fetch('/', headerGet)
+  await fetch('/', buildHeader('GET'))
  }
  const hideModal = async () => {
   signUpRef.backdrop.classList.add('signup_hide')
-  await fetch('/', headerGet)
+  await fetch('/', buildHeader('GET'))
  }
- const onLoadedPage = async (e) => {
-  const userStr = localStorage.getItem('user')
-  if (!!userStr) {
-   isAuth = true
-   const userData = JSON.parse(userStr)
-   await createHtmlAuth(userData)
-   await signUp(userData)
-   await hideModal()
-   const authLogoutBtn = document.querySelector(
-    '.auth_logout'
-   )
+ const getUser = async () => {
+  const response = await fetch(
+   '/auth/users',
+   buildHeader('GET')
+  )
+  const data = await response.json()
+  return data
+ }
 
-   authLogoutBtn.addEventListener('click', logout)
-  } else {
-   isAuth = false
-   showModal()
-  }
- }
  return {
   signUp,
   showModal,
   hideModal,
-  onLoadedPage,
+  getUser,
   logout,
  }
 }

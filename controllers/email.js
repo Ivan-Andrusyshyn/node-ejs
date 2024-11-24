@@ -1,6 +1,3 @@
-const barbers = require('../asset/barbers')
-const portfolio = require('../asset/portfolio')
-
 const nodemailer = require('../public/email/nodemailer')
 
 const postEmail = async (req, res) => {

@@ -1,21 +1,19 @@
 const express = require('express')
-const db = require('../db/db')
+const validateToken = require('../middleware/validateRequest')
+const generateToken = require('../middleware/jwtToken')
+
+const {
+ signUp,
+ getUser,
+ logout,
+} = require('../controllers/auth')
+
 const router = express.Router()
 
-router.post('/sign-up', (req, res) => {
- const { name, phone, password } = req.body
+router.post('/sign-up', generateToken, signUp)
 
- db.user = { name, phone, password }
- res.status(200).json({
-  message: 'Success log!',
- })
-})
+router.get('/users', validateToken, getUser)
 
-router.get('/logout', (req, res) => {
- db.user = null
- res.status(201).json({
-  message: 'Success logout !',
- })
-})
+router.get('/logout', logout)
 
 module.exports = router

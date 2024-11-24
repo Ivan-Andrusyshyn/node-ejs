@@ -37,6 +37,10 @@
    rel="stylesheet"
    href="../css/notification.css"
   />
+  <link
+   rel="stylesheet"
+   href="../css/loader.css"
+  />
  </head>
  <body>
   <%- include('../partials/header'); %>
@@ -57,11 +61,16 @@
   </main>
   <div id="auth"></div>
   <%- include('../partials/footer');%> <%-
+  include('../partials/loader');%> <%-
   include('../partials/mob-menu');%> <%-
   include('../partials/modal');%> <%-
   include('../partials/sign-up'); %>
   <script
    src="/js/menu.js"
+   type="module"
+  ></script>
+  <script
+   src="/js/DOMContentLoaded.js"
    type="module"
   ></script>
   <script

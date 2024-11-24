@@ -1,11 +1,10 @@
 const jwt = require('jsonwebtoken')
-const db = require('../db/db')
+
 const dotenv = require('dotenv')
 dotenv.config()
 
 const generateToken = (req, res, next) => {
  const { name, phone, password } = req.body
- db.user = { name, phone, password }
 
  const secretKey = process.env.JWT_KEY
  const options = {
@@ -17,7 +16,7 @@ const generateToken = (req, res, next) => {
   secretKey,
   options
  )
-
+ req.user = { name, phone, password }
  req.token = token
  next()
 }

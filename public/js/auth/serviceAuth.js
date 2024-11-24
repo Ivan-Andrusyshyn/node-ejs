@@ -31,6 +31,15 @@ export const authService = async () => {
    body: JSON.stringify(formObject),
   })
  }
+ const signIn = async (formObject) => {
+  return await fetch('/auth/sign-in', {
+   method: 'POST',
+   headers: {
+    'Content-Type': 'application/json',
+   },
+   body: JSON.stringify(formObject),
+  })
+ }
 
  const logout = async () => {
   await fetch('/auth/logout', buildHeader('GET'))
@@ -61,6 +70,7 @@ export const authService = async () => {
  return {
   signUp,
   showModal,
+  signIn,
   hideModal,
   getUser,
   logout,

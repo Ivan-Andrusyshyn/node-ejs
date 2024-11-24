@@ -27,15 +27,15 @@ window.addEventListener(
     inp.value = user.phone
    })
    await createHtmlAuth(user)
-   await hideModal()
    const authLogoutBtn = document.querySelector(
     '.auth_logout'
    )
-
    authLogoutBtn.addEventListener('click', logout)
-   hideLoader()
+
+   hideModal()
   } catch (error) {
    showModal()
+  } finally {
    hideLoader()
   }
  }

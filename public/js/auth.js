@@ -1,50 +1,85 @@
 import { createHtmlAuth } from './auth/createHtmlAuth.js'
 import { authService } from './auth/serviceAuth.js'
-import { signForm } from './refs.js'
+import tabsAuth from './auth/tabsAuth.js'
+import { signupForm, signinForm } from './refs.js'
 import { serviceLoader } from './serviceLoader.js'
 
-signForm.addEventListener('submit', onSubmitForm)
+tabsAuth()
+signupForm.addEventListener('submit', onSignUp)
 
-const { signUp, hideModal } = await authService()
+signinForm.addEventListener('submit', onSignIn)
+const { signUp, hideModal, signIn, logout } =
+ await authService()
 
 const { showLoader, hideLoader } = serviceLoader()
-let isAuth = false
 
-async function onSubmitForm(e) {
+async function onSignUp(e) {
  showLoader()
  e.preventDefault()
 
- const formData = new FormData(e.currentTarget)
- const formObject = Object.fromEntries(
-  formData.entries()
- )
+ const formObject = getFormObject(e)
+
  try {
-  const response = await signUp(formObject)
-  if (!response.ok) {
-   const errorData = await response.json()
-   throw new Error(
-    errorData.message || 'Error in registration.'
-   )
-  }
-
-  const data = await response.json()
-
-  if (data.access_token) {
-   localStorage.setItem(
-    'access_token',
-    JSON.stringify(data.access_token)
-   )
-  }
-
-  await hideModal()
-  await createHtmlAuth(formObject)
-  isAuth = true
-  hideLoader()
+  let response = await signUp(formObject)
+  onCallRestFunction(response, formObject)
  } catch (error) {
-  console.error('Error:', error)
-  isAuth = false
+  throw error
+ } finally {
   hideLoader()
+  e.target.reset()
+ }
+}
+
+async function onSignIn(e) {
+ showLoader()
+ e.preventDefault()
+ const formObject = getFormObject(e)
+ try {
+  let response = await signIn(formObject)
+  onCallRestFunction(response, formObject)
+ } catch (error) {
+  throw error
+ } finally {
+  hideLoader()
+  e.target.reset()
+ }
+}
+
+// hlp
+
+function getFormObject(e) {
+ const formData = new FormData(e.currentTarget)
+ return Object.fromEntries(formData.entries())
+}
+
+async function onCallRestFunction(
+ response,
+ formObject
+) {
+ if (!response.ok) {
+  const errorData = await response.json()
+  throw new Error(
+   errorData.message || 'Error in registration.'
+  )
  }
 
- e.target.reset()
+ const data = await response.json()
+
+ saveToken(data.access_token)
+
+ await hideModal()
+ await createHtmlAuth(formObject)
+ const authLogoutBtn = document.querySelector(
+  '.auth_logout'
+ )
+
+ authLogoutBtn.addEventListener('click', logout)
+}
+function saveToken(access_token) {
+ if (access_token) {
+  localStorage.setItem(
+   'access_token',
+   JSON.stringify(access_token)
+  )
+ }
 }

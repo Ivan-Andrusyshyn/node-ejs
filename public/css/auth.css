@@ -25,6 +25,10 @@
  align-items: center;
 }
 
+.hidden {
+ display: none;
+}
+
 h2 {
  margin-bottom: 20px;
  color: #333;
@@ -53,7 +57,7 @@ form {
  border-radius: 4px;
 }
 
-.signup_backdrop button {
+.form_btn {
  width: 100%;
  padding: 10px;
  background-color: #4caf50;
@@ -64,10 +68,35 @@ form {
  cursor: pointer;
 }
 
-.signup_backdrop button:hover {
+.form_btn:hover {
  background-color: #45a049;
 }
+.tab_container {
+ display: flex;
+ justify-content: space-around;
+ width: 100%;
+ margin-bottom: 20px;
+}
 
+.tab {
+ flex: 1;
+ padding: 10px;
+ background-color: #f0f0f0;
+ border: none;
+ font-size: 16px;
+ cursor: pointer;
+ transition: background-color 0.3s;
+}
+
+.tab.active {
+ background-color: #4caf50;
+ color: white;
+ font-weight: bold;
+}
+
+.tab:hover {
+ background-color: #45a049;
+}
 /* auth data */
 .auth_user {
  max-width: 300px;

@@ -9,6 +9,7 @@ const modalRefs = {
  ),
  backdrop: document.querySelector('.js-backdrop'),
 }
+
 const signUpRef = {
  closeModalBtn: document.querySelector(
   '[data-action="close-modal"]'
@@ -17,6 +18,7 @@ const signUpRef = {
   '.signup_backdrop'
  ),
 }
+
 const menuRefs = {
  menuNavLink: document.querySelectorAll(
   '.js-menu-nav-link'
@@ -31,7 +33,11 @@ const menuRefs = {
   '.js-menu-backdrop'
  ),
 }
-const signForm = document.querySelector(
+
+const signinForm = document.querySelector(
+ '.login_form'
+)
+const signupForm = document.querySelector(
  '.sign-up_form'
 )
 const authContainer =
@@ -53,7 +59,8 @@ const scrollBtn = document.querySelector(
 
 export {
  bodyRef,
- signForm,
+ signupForm,
+ signinForm,
  modalRefs,
  menuRefs,
  pageFormRef,

@@ -1,4 +1,5 @@
 const fs = require('fs')
+const bcrypt = require('bcrypt')
 
 const onWriteUser = (req, res, next) => {
  const { name, phone, password } = req.body
@@ -11,8 +12,11 @@ const onWriteUser = (req, res, next) => {
  const user = users.find(
   (user) => user.name === req.body.name
  )
+ // special did by name comparing
+ const hash = bcrypt.hashSync(password, 12)
+
  if (!user && user !== null) {
-  users.push({ name, phone, password })
+  users.push({ name, phone, password: hash })
 
   fs.writeFileSync(
    'public/users.json',

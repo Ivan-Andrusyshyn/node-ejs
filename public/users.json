@@ -7,16 +7,6 @@
  {
   "name": "qwsqws",
   "phone": "222222222222",
-  "password": "qwsqws"
- },
- {
-  "name": "qwsqw2",
-  "phone": "222222222222",
-  "password": "sqwsqws"
- },
- {
-  "name": "йцыйцы",
-  "phone": "222222222222",
-  "password": "йцыйцыйцы"
+  "password": "$2b$12$NZDhh9zLMRPfhI707vuGge7J/lZ3nHWSE/3eiZ4GkhlwmgR3fM2B2"
  }
 ]

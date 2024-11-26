@@ -1,0 +1,53 @@
+.auth_user {
+ max-width: 300px;
+ margin: 2rem auto;
+ position: absolute;
+ top: 20%;
+ left: 50%;
+ transform: translate(-50%);
+ padding: 1.5rem;
+ border-radius: 8px;
+ background-color: #f4f4f4;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ font-family: Arial, sans-serif;
+}
+
+.auth_user h3 {
+ margin-bottom: 1rem;
+ font-size: 1.5rem;
+ color: #333;
+ text-align: center;
+}
+
+.auth_user p {
+ font-size: 1rem;
+ margin: 0.5rem 0;
+ color: #555;
+}
+
+.auth_user span {
+ font-weight: bold;
+ color: #000;
+}
+.auth_logout {
+ width: 100%;
+ font-size: 14px;
+ padding: 4px 0;
+ border: 1px solid red;
+ border-radius: 4px;
+
+ font-family: Arial, sans-serif;
+ background-color: transparent;
+}
+.auth_user p + p {
+ border-top: 1px solid #ddd;
+ padding-top: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+ .auth_user {
+  top: 100px;
+  left: 50px;
+  transform: translate(0);
+ }
+}
